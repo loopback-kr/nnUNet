@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  debug:
+    hostname: $PWD
+    build:
+      context: $PWD
+      args:
+        - USER
+        - XDG_RUNTIME_DIR
+    tty: true
+    stdin_open: true
+    network_mode: default
+    shm_size: 80g
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [ gpu ]
+              count: all
+    volumes:
+      - $PWD:/workspace
