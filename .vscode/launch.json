@@ -1,0 +1,21 @@
+{"version": "0.2.0",
+    "configurations": [{
+            "name": "Python: 현재 파일",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            // "justMyCode": true
+        },{
+            "name": "Preprocess", "type": "python", "request": "launch", "justMyCode": false,
+            "program": "nnunetv2/experiment_planning/plan_and_preprocess_entrypoints.py", "args": [
+                "-d=999",
+                // "--verify_dataset_integrity",
+            ],"env": {"nnUNet_def_n_proc": "64",}
+        },{
+            "name": "Train", "type": "python", "request": "launch", "justMyCode": false,
+            "program": "nnunetv2/run/run_training.py", "args": [
+                "999", "3d_fullres", "0",
+            ],"env": {"nnUNet_def_n_proc": "16", "CUDA_VISIBLE_DEVICES": "0",}
+        },
+]}

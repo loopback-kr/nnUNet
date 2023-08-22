@@ -8,8 +8,13 @@ RUN groupadd --gid $(basename $XDG_RUNTIME_DIR) $USER &&\
     chmod 0440 /etc/sudoers.d/$USER
 
 WORKDIR /workspace
+ENV PYTHONPATH=/workspace
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+
+ENV nnUNet_raw="/workspace/nnUNet_raw"
+ENV nnUNet_preprocessed="/workspace/nnUNet_preprocessed"
+ENV nnUNet_results="/workspace/nnUNet_results"
 
 RUN chown $USER:$USER /workspace
 USER $USER

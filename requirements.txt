@@ -13,3 +13,6 @@ tifffile
 matplotlib
 adabelief-pytorch
 torchinfo
+acvl_utils
+dynamic_network_architectures
+seaborn

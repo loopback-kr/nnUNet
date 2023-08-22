@@ -2,3 +2,7 @@ __pycache__/
 data/
 out/
 temp/
+
+nnUNet_raw/
+nnUNet_preprocessed/
+nnUNet_results/
